@@ -1,0 +1,110 @@
+/*----------- MENU ---------*/
+.menuButton {
+    position: fixed;
+    top: 10px;
+    right: 90px;
+    z-index: 1000;
+}
+.toggler {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 60px;
+    height: 60px;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+}
+.hamburger {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #303745;
+    background: #F3F3F3;
+}
+.hamburger:before {
+    content: "MENU";
+    font-size: 0.625em;
+    margin-top: -30px;
+}
+.hamburger>div {
+    position: absolute;
+    top: 35px;
+    width: 60%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #29741b;
+    transition: .5s;
+}
+.hamburger>div:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #29741b;
+    top: -10px;
+    left: 0;
+    transition: .4s;
+}
+.toggler:checked + .hamburger>div {
+    transform: rotate(135deg);
+}
+.toggler:checked:hover + .hamburger>div {
+    transform: rotate(225deg);
+}
+.toggler:checked + .hamburger>div:before, .toggler:checked + .hamburger>div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+.menu-wrapper {
+    z-index: 999;
+    position: fixed;
+    clip-path: circle(25px at calc(100% - 25px) 25px);
+    background: rgb(129, 133, 142);
+    padding: 8vh 1.5em;
+    transition: clip-path 500ms ease-in-out;
+    right: 25px;
+    top: 25px;
+    border-radius: 25px;
+}
+.menu-wrapper.active {
+    clip-path: circle(100%);
+}
+
+.menu-wrapper .menu {
+    text-align: center;
+    transition: all 500ms ease-in-out;
+}
+
+.menu > div > div > ul > li {
+    list-style: none;
+    padding: 5px;
+}
+.menu > div > div > ul > li > a {
+    text-decoration: none;
+    color: whitesmoke;
+    text-transform: uppercase;
+    padding: 1em 2.5em;
+    font-size: 1em;
+    display: block;
+}
+.menu > div > div > ul > li > a:hover, .sub-menu a:hover {
+    color: #99bba9;
+    font-weight: 500;
+    scale: 1.05;
+}
+.menu > div > div > ul > li > a svg {
+    fill: whitesmoke;
+    width: 16px;
+    height: 16px;
+}
+.menu > div > div > ul > li:hover > a svg:hover {
+    fill: #99bba9;
+}
